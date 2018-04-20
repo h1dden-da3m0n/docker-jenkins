@@ -1,0 +1,7 @@
+FROM jenkins/jenkins:2.107.2-alpine
+MAINTAINER Daniel H. <k3rnelpan1c@[hidden]>
+
+USER root
+RUN apk --update --no-cache add python py-pip py-setuptools ca-certificates docker=17.12.1-r0 && \
+  addgroup jenkins docker && rm -rf /var/cache/apk/* && rm -rf /tmp/*
+USER jenkins
